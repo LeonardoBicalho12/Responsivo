@@ -1,0 +1,117 @@
+/* configuração padrão */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/* ajusta as dimensões */
+}
+body{
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+}
+a{
+    text-decoration: none;
+    color: #e61717;
+    font-size: 1.5em;
+
+}
+/* NavBar */
+.navbar{
+    width: 100%;
+    height: 100px;
+    background-color: #4e4c4c;
+}
+.navbar img{
+    width: 150px;
+}
+.navbar ul{
+    list-style: none;
+    display: flex;
+}
+.navbar ul li+li{
+    margin-left: 5px;
+}
+.navbar li a{
+    list-style: none;
+    display: block;
+    padding: 10px 20px;
+}
+.navbar li a:hover{
+    color: #ffffff;
+    background-color: #e61717;
+    border-radius: 5px;
+    
+}
+/* usando o display:flex */
+.sub-container{
+    display: flex;
+    flex-wrap: wrap;/* permissão de quebrar as colunas */
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1024px;
+    height: 1024px;
+    padding: 20px;/* nargen interna */
+}
+/* Div princípal container */
+.container{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+/* Section */
+.section{
+    display: grid;
+    grid-template-columns: 512px 512px;
+}
+.img-area, .text-area{ /* vírgula para mexer em mais de uma classe de uma vez */
+    width: 512px;
+    align-items: center;
+    display: grid;
+}
+.img-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.img-area img{
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 25px;
+    transition: all .25s;
+}
+.img-area span{
+    opacity: 0;
+    position: absolute;
+    transition: all .25s ease;
+    z-index: 1; 
+}
+.img-area img:hover{
+    filter:blur(1px) grayscale(100%)
+}
+.img-area:hover > span{
+    opacity: 5;
+}
+.text-area{
+    color: #000000;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 20px;
+}
+.text-area h1{ 
+    margin-bottom: 20px;
+    cursor: default; /* muda o formato do cursor */
+}
+.text-area p{
+    text-align: justify;
+}
+/* Contato */
+.bg-contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    border-radius: 5px;
+    background: url(/img_2/mountain_3.png);
+    background-size: cover;
+    position: relative;
+}
