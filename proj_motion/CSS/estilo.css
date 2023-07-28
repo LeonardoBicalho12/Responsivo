@@ -33,6 +33,7 @@ a{
     list-style: none;
     display: block;
     padding: 10px 20px;
+    transition: all .1s ease-in;
 }
 .navbar li a:hover{
     color: #ffffff;
@@ -48,7 +49,7 @@ a{
     justify-content: space-between;
     margin: 0 auto;
     width: 1024px;
-    height: 1024px;
+    height: 100px;
     padding: 20px;/* nargen interna */
 }
 /* Div princípal container */
@@ -66,6 +67,7 @@ a{
     width: 512px;
     align-items: center;
     display: grid;
+    transition: all .25s ease;
 }
 .img-area{
     display: flex;
@@ -77,7 +79,7 @@ a{
     max-width: 100%;
     padding: 20px;
     border-radius: 25px;
-    transition: all .25s;
+    transition: all .25s ease;
 }
 .img-area span{
     opacity: 0;
@@ -85,11 +87,14 @@ a{
     transition: all .25s ease;
     z-index: 1; 
 }
+.img-area span:hover{
+    transform: scale(1.01);
+}
 .img-area img:hover{
-    filter:blur(1px) grayscale(100%)
+    filter:blur(1px) grayscale(1)
 }
 .img-area:hover > span{
-    opacity: 5;
+    opacity: 1;
 }
 .text-area{
     color: #000000;
@@ -109,9 +114,133 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 680px;
     border-radius: 5px;
-    background: url(/img_2/mountain_3.png);
+    background: url(/img_2/mountain_3.png) center;
     background-size: cover;
     position: relative;
+    transition: all .25s ease;
+}
+.bg-contact:hover{
+    filter:grayscale(1)
+}
+.contact, .img-area span{
+    background:#4e4c4c;
+    padding:15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+.contact:hover{
+    color: #d12222;
+    background:none;
+    border: 1px solid #ffffff;
+    transform: scale(1.01);
+}
+@keyframes arrow{
+    from{
+        bottom: 60px;
+    }
+    to{
+        bottom: 30px;
+    }
+}
+.arrow{
+    animation: arrow 1s infinite alternate ease-in;
+    z-index: 1;
+    position: absolute;
+    font-size: 2em;
+    color: #f0f8ff;
+}
+.contact-section{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+    height: 400px;
+}
+.contact-section img{
+    max-width: 200px;
+    max-height: 50px;
+    margin: 20px 0 10px 0;
+}
+.linkedin span, .github span{
+    padding-bottom: 5px;
+    transition: border-bottom .1s ease
+}
+.linkedin:hover span, .github:hover span{
+    border-bottom: 2px solid #000000;
+}
+/* footer */
+footer{
+    height: 100px;
+    background: #ffffff;
+}
+footer span{
+    margin: 0 auto;
+    font-style: italic;
+    font-size: 0.9em;
+    cursor: default;
+}
+/* breakpoint medium-large devices */
+@media (max-width:1050px){
+    .navbar{
+        margin-bottom: 50px;
+    }
+    .sub-container{
+        width: 760px;
+        padding: 0 40px;
+    }
+    .container{
+        width: 760px;
+    }
+    .section{
+        grid-template-columns: 760px;
+        justify-content: center;
+    }
+    .img-area, .text-area{
+        margin: 0 auto;
+        width: 700px;
+        margin-bottom: 20px;
+    }
+}
+/* breakpoint medium devices */
+@media (max-width:785px){
+    .sub-container{
+        justify-content: center;
+        width: 100%;
+        padding: 10px;
+    }
+    .container{
+        width: 100%;
+    }
+    .section{
+        grid-template-columns: 1;
+        justify-content: center;
+    }
+    .img-area, .text-area{
+        width: 70%;
+    }
+    .img-area img{
+        padding: 0;
+        width: 95%;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    .contact-section{
+        font-size: 0.7em;
+    }
+}
+/* breakpoint small devices */
+@media (max-width:548px){
+    .navbar{
+        height: 150px;
+        margin-bottom: 0;
+    }
+    .img-area, .img-area img, .text area{
+        width: 360px;
+    }
 }
